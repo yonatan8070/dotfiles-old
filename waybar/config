@@ -4,6 +4,7 @@
   "position": "top",
   "modules-left": [
     "sway/workspaces",
+    "wlr/taskbar",
     "custom/right-arrow-dark",
     "custom/right-arrow-light",
     "sway/window",
