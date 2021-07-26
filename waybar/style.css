@@ -1,0 +1,108 @@
+* {
+  font-size: 16px;
+  font-family: JetBrainsMono Nerd Font;
+}
+
+window#waybar {
+  background: #1a1d21;
+  color: #fdf6e3;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+  color: #0e0e12;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+  color: #1a1d21;
+  background: #0e0e12;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#network,
+#temperature,
+#custom-gpu-usage,
+#window,
+#taskbar,
+#tray {
+  background: #0e0e12;
+}
+
+#workspaces button {
+  padding: 0 2px;
+  color: #fdf6e3;
+  transition: 0.1s linear;
+}
+#workspaces button.focused {
+  color: #ff3f4f;
+  padding: 0 5px;
+}
+#workspaces button:hover {
+  border: #0e0e12;
+  padding: 0 10px;
+}
+#workspaces button:active {
+  background: #121212;
+  padding: 0 5px;
+}
+
+#pulseaudio {
+  color: #ff3f4f;
+}
+#memory {
+  color: #6aebf7;
+}
+#cpu {
+  color: #e373ce;
+}
+#temperature {
+  color: #81f900;
+}
+#custom-gpu-usage {
+  color: #ff9700;
+}
+#clock {
+  color: #e373ce;
+}
+#window {
+  color: #f7d945;
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#custom-gpu-usage,
+#network,
+#temperature,
+#window,
+#disk {
+  padding: 0px 10px;
+}
+
+#taskbar {
+  padding: 0px;
+}
+
+#taskbar button {
+  padding: 0px 10px;
+  border: #00000000;
+  color: #fdf6e3;
+  transition: 0.1s linear;
+}
+#taskbar button.hover {
+  border: #0e0e12;
+  padding: 0 10px;
+}
+#taskbar button.active {
+  color: #ff3f4f;
+  background: #121212;
+  padding: 0 5px;
+}
