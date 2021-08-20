@@ -70,13 +70,22 @@
       "newline": true,
       "segments": [
         {
+          "type": "os",
+          "style": "plain",
+          "foreground": "#3EA5D9",
+          "properties": {
+            "prefix": "<#C41202>┖[</>"
+          }
+        },
+        {
           "type": "path",
           "style": "plain",
           "foreground": "#ffffff",
           "properties": {
             "style": "full",
-            "prefix": "<#C41202>┖[</>",
-            "postfix": "<#C41202>]></>"
+            "prefix": "",
+            "postfix": "<#C41202>]></>",
+            "enable_hyperlink": true
           }
         }
       ]
