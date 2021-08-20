@@ -22,7 +22,8 @@
           "foreground": "#ffffff",
           "properties": {
             "prefix": "<#C41202>[</>",
-            "postfix": "<#C41202>]</>"
+            "postfix": "<#C41202>]</>",
+            "display_status": true
           }
         },
         {
