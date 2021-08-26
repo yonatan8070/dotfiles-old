@@ -115,8 +115,8 @@
     "interval": 1
   },
   "custom/gpu-usage": {
-    "exec": "cat /sys/class/hwmon/hwmon3/device/gpu_busy_percent",
-    "format": "GPU: {}%",
+    "exec": "printf \"%3s\" $(cat /sys/class/hwmon/hwmon3/device/gpu_busy_percent)",
+    "format": "GPU:{}%",
     "return-type": "",
     "interval": 1
   },
