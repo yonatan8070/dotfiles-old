@@ -135,6 +135,7 @@
     "on-click-middle": "close"
   },
   "battery": {
-    "format": "BAT: {capacity}%"
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
   }
 }
