@@ -4,7 +4,7 @@
   "position": "top",
   "modules-left": [
     "sway/workspaces",
-    "wlr/taskbar",
+    //"wlr/taskbar",
     "custom/right-arrow-dark",
     "custom/right-arrow-light",
     "sway/window",
@@ -16,6 +16,9 @@
     "custom/right-arrow-dark"
   ],
   "modules-right": [
+    "custom/left-arrow-dark",
+    "battery",
+    "custom/left-arrow-light",
     "custom/left-arrow-dark",
     "pulseaudio",
     "custom/left-arrow-light",
@@ -57,7 +60,10 @@
   },
   "clock#1": {
     "format": "{:%Y-%m-%d %H:%M:%S %Z}",
-    "timezones": ["Asia/Jerusalem", "Etc/UTC"],
+    "timezones": [
+      "Asia/Jerusalem",
+      "Etc/UTC"
+    ],
     "interval": 1,
     "tooltip": false
   },
@@ -127,5 +133,8 @@
     "format": "{app_id}",
     "on-click": "activate",
     "on-click-middle": "close"
+  },
+  "battery": {
+    "format": "BAT: {capacity}%"
   }
 }

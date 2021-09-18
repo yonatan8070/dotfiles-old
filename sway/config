@@ -7,6 +7,10 @@
 output DP-3 resolution 1920x1080@144Hz
 output DP-3 adaptive_sync off
 
+output eDP-1 {
+  resolution 1920x1080@60Hz
+  scale 1.2
+}
 gaps inner 3
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -23,6 +27,19 @@ input type:keyboard {
     xkb_options grp:menu_toggle
     xkb_numlock enabled
 }
+
+input type:touchpad {
+  accel_profile "adaptive"
+  pointer_accel -0.2
+  scroll_factor 0.7
+  tap enabled
+  natural_scroll enabled
+  drag enabled
+}
+
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
 
 ### Variables
 #
@@ -46,7 +63,7 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/yonatan/Pictures/Wallpapers/mattia-tomasi-the-sky-is-not-the-limit.jpg fill
+output * bg `find -L /home/yonatan/Pictures/Wallpapers -type f | sort -R | head -n 1 | xargs swaybg --image` fill
 #
 # Example configuration:
 #
@@ -110,7 +127,7 @@ exec swayidle -w \
     bindsym --to-code $mod+Shift+e exec wlogout
 
     # Lock screen
-    bindsym --to-code --release $mod+l exec "bash ~/Misc/lock.sh"
+    bindsym --to-code --release $mod+l exec swaylock
     bindsym --to-code $mod+Escape exec wlogout
 #
 # Moving around:
