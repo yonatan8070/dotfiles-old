@@ -275,7 +275,7 @@ bindsym --to-code XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@
 bindsym --to-code XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Screenshot
-bindsym --to-code Print exec "/home/yonatan/Misc/screenshot.sh"
+bindsym --to-code $mod+Shift+g exec grim -g "$(slurp -d)" - | wl-copy
 bindsym --to-code Pause exec "/home/yonatan/Misc/color-picker.sh"
 
 #
