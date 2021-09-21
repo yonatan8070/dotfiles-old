@@ -24,7 +24,6 @@ input * {
 input type:keyboard {
     xkb_layout us,il
     xkb_options caps:super
-    xkb_options grp:menu_toggle
     xkb_numlock enabled
 }
 
@@ -38,8 +37,9 @@ input type:touchpad {
 }
 
 set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+bindswitch --reload --locked lid:off swaylock
+# bindswitch --reload --locked lid:on swaylock & ; systemctl suspend
+# bindswitch --reload --locked lid:off output $laptop enable
 
 ### Variables
 #
@@ -63,7 +63,7 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg `find -L /home/yonatan/Pictures/Wallpapers -type f | sort -R | head -n 1 | xargs swaybg --image` fill
+output * bg /home/yonatan/dotfiles/Wallpapers/debby-illanes-emeber-dex-illustration.jpg fill
 #
 # Example configuration:
 #
