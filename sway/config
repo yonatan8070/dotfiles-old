@@ -202,6 +202,9 @@ exec swayidle -w \
     bindsym --to-code $mod+Shift+s move container to workspace 6:S; workspace 6:S; move workspace to output HDMI-A-1
     bindsym --to-code $mod+Shift+d move container to workspace 7:D; workspace 7:D; move workspace to output HDMI-A-1
     bindsym --to-code $mod+Shift+f move container to workspace 8:F; workspace 8:F; move workspace to output HDMI-A-1
+
+	# Allow for Super + tab for switching workspaces
+    bindsym $mod+tab workspace back_and_forth
 #
 # Layout stuff:
 #
