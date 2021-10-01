@@ -11,7 +11,7 @@ output eDP-1 {
   resolution 1920x1080@60Hz
   scale 1.2
 }
-gaps inner 3
+gaps inner 2
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -37,7 +37,7 @@ input type:touchpad {
 }
 
 set $laptop eDP-1
-bindswitch --reload --locked lid:off swaylock
+bindswitch --reload lid:on swaylock
 # bindswitch --reload --locked lid:on swaylock & ; systemctl suspend
 # bindswitch --reload --locked lid:off output $laptop enable
 
@@ -63,7 +63,7 @@ for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 p
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/yonatan/dotfiles/Wallpapers/debby-illanes-emeber-dex-illustration.jpg fill
+output * bg $(find /home/yonatan/dotfiles/Wallpapers -type f | shuf | head -n 1) fill
 #
 # Example configuration:
 #
@@ -265,7 +265,7 @@ mode "resize" {
 #bindsym --to-code $mod+r mode "resize"
 
 # Border
-default_border pixel 3
+default_border pixel 0
 client.focused          b00000 b00000 ffffff b00000
 client.unfocused        484848 484848 ffffff 484848
 client.focused_inactive 484848 484848 ffffff 484848
@@ -274,8 +274,12 @@ client.focused_inactive 484848 484848 ffffff 484848
 bindsym --to-code XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --to-code XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+# Brightness control
+bindsym --to-code XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym --to-code XF86MonBrightnessDown exec brightnessctl set 10%-
+
 # Screenshot
-bindsym --to-code $mod+Shift+g exec grim -g "$(slurp -d)" - | wl-copy
+bindsym --to-code Print exec grim -g "$(slurp -d)" - | wl-copy
 bindsym --to-code Pause exec "/home/yonatan/Misc/color-picker.sh"
 
 #
