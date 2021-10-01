@@ -37,19 +37,18 @@ window#waybar {
 #workspaces button {
   padding: 0 2px;
   color: #fdf6e3;
-  transition: 0.1s linear;
 }
 #workspaces button.focused {
+  padding: 0 2px;
   color: #ff3f4f;
-  padding: 0 5px;
 }
 #workspaces button:hover {
   border: #0e0e12;
-  padding: 0 10px;
+  padding: 0 2px;
 }
 #workspaces button:active {
   background: #121212;
-  padding: 0 5px;
+  padding: 0 2px;
 }
 
 #pulseaudio {
