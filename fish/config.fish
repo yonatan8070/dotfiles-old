@@ -11,5 +11,5 @@ set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operat
 
 # Start compositor only on tty1
 if test (tty) = /dev/tty1
-    wayfire > ~/wayfire-log.txt
+    sway
 end
