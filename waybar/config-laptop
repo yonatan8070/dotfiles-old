@@ -1,0 +1,141 @@
+// -*- mode: json -*-
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "sway/workspaces",
+    //"wlr/taskbar",
+    "custom/right-arrow-dark",
+    "custom/right-arrow-light",
+    "sway/window",
+    "custom/right-arrow-dark"
+  ],
+  "modules-center": [
+    "custom/left-arrow-dark",
+    "clock#1",
+    "custom/right-arrow-dark"
+  ],
+  "modules-right": [
+    "custom/left-arrow-dark",
+    "battery",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "pulseaudio",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "memory",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "cpu",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "custom/gpu-usage",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "temperature#1",
+    "temperature#2",
+    "custom/left-arrow-light",
+    "custom/left-arrow-dark",
+    "tray"
+  ],
+  "custom/left-arrow-dark": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left-arrow-light": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right-arrow-dark": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right-arrow-light": {
+    "format": "",
+    "tooltip": false
+  },
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "format": "/{name}/"
+  },
+  "clock#1": {
+    "format": "{:%Y-%m-%d %H:%M:%S %Z}",
+    "timezones": [
+      "Asia/Jerusalem",
+      "Etc/UTC"
+    ],
+    "interval": 1,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume:2}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "MUTE",
+    "format-icons": {
+      "headphones": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol"
+  },
+  "memory": {
+    "interval": 1,
+    "format": "RAM {}%"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "CPU {usage:2}%"
+  },
+  "disk": {
+    "interval": 60,
+    "format": "Disk {percentage_used:2}%",
+    "path": "/"
+  },
+  "network": {
+    "format": "{ipaddr}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "temperature#1": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "format": "CPU: {temperatureC}°C",
+    "interval": 1
+  },
+  "temperature#2": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "format": "GPU: {temperatureC}°C",
+    "interval": 1
+  },
+  "custom/gpu-usage": {
+    "exec": "printf \"%3s\" $(cat /sys/class/hwmon/hwmon3/device/gpu_busy_percent)",
+    "format": "GPU:{}%",
+    "return-type": "",
+    "interval": 1
+  },
+  "sway/window": {
+    "tooltip": false
+  },
+  "wlr/taskbar": {
+    "format": "{app_id}",
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  }
+}
