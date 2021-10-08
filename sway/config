@@ -216,9 +216,8 @@ exec swayidle -w \
     # bindsym --to-code $mod+v splitv
 
     # Switch the current container between different layout styles
-    # bindsym --to-code $mod+s layout stacking
-    # bindsym --to-code $mod+w layout tabbed
-    # bindsym --to-code $mod+e layout toggle split
+    bindsym --to-code $mod+t layout toggle tabbed split
+    bindsym --to-code Alt+tab focus next
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+w fullscreen
@@ -285,6 +284,8 @@ bindsym --to-code XF86MonBrightnessDown exec brightnessctl set 10%-
 # Screenshot
 bindsym --to-code Print exec grim -g "$(slurp -d)" - | wl-copy
 bindsym --to-code Pause exec "/home/yonatan/Misc/color-picker.sh"
+
+bindsym --to-code XF86AudioPlay exec playerctl play-pause
 
 # File with shit specific to each PC
 include /home/yonatan/dotfiles/sway/local-config
