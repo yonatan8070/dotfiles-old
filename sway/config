@@ -215,9 +215,8 @@ exec swayidle -w \
     # bindsym --to-code $mod+v splitv
 
     # Switch the current container between different layout styles
-    # bindsym --to-code $mod+s layout stacking
-    # bindsym --to-code $mod+w layout tabbed
-    # bindsym --to-code $mod+e layout toggle split
+    bindsym --to-code $mod+t layout toggle tabbed split
+    bindsym --to-code Alt+tab focus next
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+w fullscreen
