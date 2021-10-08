@@ -37,7 +37,8 @@ input type:touchpad {
 }
 
 set $laptop eDP-1
-bindswitch --reload lid:on swaylock
+bindswitch --reload lid:on exec swaylock -f && systemctl suspend
+
 # bindswitch --reload --locked lid:on swaylock & ; systemctl suspend
 # bindswitch --reload --locked lid:off output $laptop enable
 
