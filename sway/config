@@ -4,8 +4,21 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-output DP-3 resolution 1920x1080@144Hz
-output DP-3 adaptive_sync off
+output DP-2 {
+  resolution 1920x1080@60Hz
+  pos 1920 0
+  transform 180
+}
+
+output DP-3 {
+  resolution 1920x1080@144Hz
+  pos 1920 1080
+  adaptive_sync off
+}
+
+output HDMI-A-1 {
+	pos 0 1080
+}
 
 output eDP-1 {
   resolution 1920x1080@60Hz
@@ -25,6 +38,7 @@ input type:keyboard {
     xkb_layout us,il
     xkb_options caps:super
     xkb_numlock enabled
+    xkb_options grp:menu_toggle
 }
 
 input type:touchpad {
@@ -84,20 +98,6 @@ exec swayidle -w \
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
 #
@@ -191,7 +191,10 @@ exec swayidle -w \
     bindsym --to-code $mod+s workspace 6:S; move workspace to output HDMI-A-1
     bindsym --to-code $mod+d workspace 7:D; move workspace to output HDMI-A-1
     bindsym --to-code $mod+f workspace 8:F; move workspace to output HDMI-A-1
-    # bindsym --to-code $mod+g workspace 9:G; move workspace to output DP-3
+    bindsym --to-code $mod+1 workspace 9:1; move workspace to output DP-2
+    bindsym --to-code $mod+2 workspace 10:2; move workspace to output DP-2
+    bindsym --to-code $mod+3 workspace 11:3; move workspace to output DP-2
+    bindsym --to-code $mod+4 workspace 12:4; move workspace to output DP-2
 
     # Move focused container to workspace 
     bindsym --to-code $mod+Shift+z move container to workspace 1:Z; workspace 1:Z; move workspace to output DP-3
@@ -202,6 +205,10 @@ exec swayidle -w \
     bindsym --to-code $mod+Shift+s move container to workspace 6:S; workspace 6:S; move workspace to output HDMI-A-1
     bindsym --to-code $mod+Shift+d move container to workspace 7:D; workspace 7:D; move workspace to output HDMI-A-1
     bindsym --to-code $mod+Shift+f move container to workspace 8:F; workspace 8:F; move workspace to output HDMI-A-1
+    bindsym --to-code $mod+Shift+1 move container to workspace 9:1; workspace 9:1; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+2 move container to workspace 10:2; workspace 10:2; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+3 move container to workspace 11:3; workspace 11:3; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+4 move container to workspace 12:4; workspace 12:4; move workspace to output DP-2
 
 	# Allow for Super + tab for switching workspaces
     bindsym $mod+tab workspace back_and_forth
@@ -288,6 +295,8 @@ bindsym --to-code XF86AudioPlay exec playerctl play-pause
 
 # File with shit specific to each PC
 include /home/yonatan/dotfiles/sway/local-config
+
+for_window [app_id=qemu] floating true
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec mako

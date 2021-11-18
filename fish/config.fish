@@ -9,6 +9,8 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 
 set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operator. Using (fish --version | sed 's/, version//'). Good luck.
 
+thefuck --alias | source
+
 # Start compositor only on tty1
 if test (tty) = /dev/tty1
     sway
