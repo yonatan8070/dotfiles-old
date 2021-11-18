@@ -30,7 +30,8 @@ window#waybar {
 #custom-gpu-usage,
 #window,
 #taskbar,
-#tray {
+#tray,
+#backlight {
   background: #0e0e12;
 }
 
@@ -82,7 +83,8 @@ window#waybar {
 #network,
 #temperature,
 #window,
-#disk {
+#disk,
+#backlight {
   padding: 0px 10px;
 }
 

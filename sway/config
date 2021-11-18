@@ -39,11 +39,12 @@ input type:keyboard {
     xkb_options caps:super
     xkb_numlock enabled
     xkb_options grp:menu_toggle
+    xkb_options grp:win_space_toggle
 }
 
 input type:touchpad {
   accel_profile "adaptive"
-  pointer_accel -0.2
+  pointer_accel 0.0
   scroll_factor 0.7
   tap enabled
   natural_scroll enabled
@@ -51,7 +52,9 @@ input type:touchpad {
 }
 
 set $laptop eDP-1
-bindswitch --reload lid:on swaylock
+bindswitch --reload lid:on exec swaylock -f && systemctl suspend
+bindswitch --reload --locked lid:on exec systemctl suspend
+
 # bindswitch --reload --locked lid:on swaylock & ; systemctl suspend
 # bindswitch --reload --locked lid:off output $laptop enable
 
