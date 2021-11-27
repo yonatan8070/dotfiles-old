@@ -20,10 +20,10 @@ output HDMI-A-1 {
 	pos 0 1080
 }
 
-output eDP-1 {
-  resolution 1920x1080@60Hz
-  scale 1.2
-}
+# output eDP-1 {
+#   resolution 1920x1080@60Hz
+#   scale 1.2
+# }
 gaps inner 2
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
