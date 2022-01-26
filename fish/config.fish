@@ -10,6 +10,9 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 # Make bat colorize man pages
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+# Allow less to show stuff like archives
+set -x LESSOPEN "|lesspipe.sh %s"
+
 set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operator. Using (fish --version | sed 's/, version//'). Good luck.
 
 thefuck --alias | source
