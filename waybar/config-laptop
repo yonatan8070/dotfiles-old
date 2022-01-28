@@ -143,7 +143,9 @@
     "interval": 15
   },
   "backlight": {
-  	"device": "intel_backlight",
-    "format": " {percent}%"
+    "device": "intel_backlight",
+    "format": " {percent}%",
+    "on-scroll-up": "brightnessctl set 2-",
+    "on-scroll-down": "brightnessctl set +2"
   }
 }
