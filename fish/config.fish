@@ -7,13 +7,14 @@ set -x _JAVA_AWT_WM_NONREPARENTING 1
 # QT theme
 set -x QT_QPA_PLATFORMTHEME qt5ct
 
-# Fish greeting
+# Make bat colorize man pages
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+# Allow less to show stuff like archives
+set -x LESSOPEN "|lesspipe.sh %s"
+
 set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operator. Using (fish --version | sed 's/, version//'). Good luck.
 
-# Neovim alias
-alias nv nvim
+thefuck --alias | source
 
-# Start compositor only on tty1
-if test (tty) = /dev/tty1
-    sway
-end
+alias miniterm="python3 -m serial.tools.miniterm -e"
