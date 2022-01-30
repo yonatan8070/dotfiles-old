@@ -109,7 +109,7 @@ exec swayidle -w \
 # Basics:
 #
     # Start a terminal
-    bindsym --to-code $mod+Return exec $term
+    bindsym --to-code $mod+Return exec 'alacritty msg create-window || alacritty'
 
     # Kill focused window
     bindsym --to-code $mod+q kill
