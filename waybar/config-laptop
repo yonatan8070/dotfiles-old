@@ -124,7 +124,8 @@
     "interval": 1
   },
   "sway/window": {
-    "tooltip": false
+    "tooltip": false,
+    "icon": false
   },
   "wlr/taskbar": {
     "format": "{app_id}",
