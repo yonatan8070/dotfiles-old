@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-output DP-2 {
+output DP-3 {
   resolution 1920x1080@60Hz
   pos 1920 0
   transform 180
@@ -16,7 +16,7 @@ output DP-1 {
   adaptive_sync off
 }
 
-output HDMI-A-1 {
+output HDMI-A-4 {
 	pos 0 1080
 }
 
@@ -189,32 +189,32 @@ exec swayidle -w \
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    bindsym --to-code $mod+z workspace 1:Z; move workspace to output DP-1
-    bindsym --to-code $mod+x workspace 2:X; move workspace to output DP-1
-    bindsym --to-code $mod+c workspace 3:C; move workspace to output DP-1
-    bindsym --to-code $mod+v workspace 4:V; move workspace to output DP-1
-    bindsym --to-code $mod+a workspace 5:A; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+s workspace 6:S; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+d workspace 7:D; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+f workspace 8:F; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+1 workspace 9:1; move workspace to output DP-2
-    bindsym --to-code $mod+2 workspace 10:2; move workspace to output DP-2
-    bindsym --to-code $mod+3 workspace 11:3; move workspace to output DP-2
-    bindsym --to-code $mod+4 workspace 12:4; move workspace to output DP-2
+    bindsym --to-code $mod+z workspace 1:Z; move workspace to output DP-2
+    bindsym --to-code $mod+x workspace 2:X; move workspace to output DP-2
+    bindsym --to-code $mod+c workspace 3:C; move workspace to output DP-2
+    bindsym --to-code $mod+v workspace 4:V; move workspace to output DP-2
+    bindsym --to-code $mod+a workspace 5:A; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+s workspace 6:S; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+d workspace 7:D; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+f workspace 8:F; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+1 workspace 9:1; move workspace to output DP-3
+    bindsym --to-code $mod+2 workspace 10:2; move workspace to output DP-3
+    bindsym --to-code $mod+3 workspace 11:3; move workspace to output DP-3
+    bindsym --to-code $mod+4 workspace 12:4; move workspace to output DP-3
 
     # Move focused container to workspace 
-    bindsym --to-code $mod+Shift+z move container to workspace 1:Z; workspace 1:Z; move workspace to output DP-1
-    bindsym --to-code $mod+Shift+x move container to workspace 2:X; workspace 2:X; move workspace to output DP-1
-    bindsym --to-code $mod+Shift+c move container to workspace 3:C; workspace 3:C; move workspace to output DP-1
-    bindsym --to-code $mod+Shift+v move container to workspace 4:V; workspace 4:V; move workspace to output DP-1
-    bindsym --to-code $mod+Shift+a move container to workspace 5:A; workspace 5:A; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+Shift+s move container to workspace 6:S; workspace 6:S; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+Shift+d move container to workspace 7:D; workspace 7:D; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+Shift+f move container to workspace 8:F; workspace 8:F; move workspace to output HDMI-A-1
-    bindsym --to-code $mod+Shift+1 move container to workspace 9:1; workspace 9:1; move workspace to output DP-2
-    bindsym --to-code $mod+Shift+2 move container to workspace 10:2; workspace 10:2; move workspace to output DP-2
-    bindsym --to-code $mod+Shift+3 move container to workspace 11:3; workspace 11:3; move workspace to output DP-2
-    bindsym --to-code $mod+Shift+4 move container to workspace 12:4; workspace 12:4; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+z move container to workspace 1:Z; workspace 1:Z; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+x move container to workspace 2:X; workspace 2:X; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+c move container to workspace 3:C; workspace 3:C; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+v move container to workspace 4:V; workspace 4:V; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+a move container to workspace 5:A; workspace 5:A; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+Shift+s move container to workspace 6:S; workspace 6:S; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+Shift+d move container to workspace 7:D; workspace 7:D; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+Shift+f move container to workspace 8:F; workspace 8:F; move workspace to output HDMI-A-4
+    bindsym --to-code $mod+Shift+1 move container to workspace 9:1; workspace 9:1; move workspace to output DP-3
+    bindsym --to-code $mod+Shift+2 move container to workspace 10:2; workspace 10:2; move workspace to output DP-3
+    bindsym --to-code $mod+Shift+3 move container to workspace 11:3; workspace 11:3; move workspace to output DP-3
+    bindsym --to-code $mod+Shift+4 move container to workspace 12:4; workspace 12:4; move workspace to output DP-3
 
 	# Allow for Super + tab for switching workspaces
     bindsym $mod+tab workspace back_and_forth
@@ -229,7 +229,7 @@ exec swayidle -w \
 
     # Switch the current container between different layout styles
     bindsym --to-code $mod+t layout toggle tabbed split
-    bindsym --to-code Alt+tab focus next
+    # bindsym --to-code Alt+tab focus next
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+w fullscreen
