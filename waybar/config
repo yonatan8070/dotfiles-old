@@ -116,7 +116,7 @@
     "interval": 1
   },
   "custom/gpu-usage": {
-    "exec": "printf \"%3s\" $(cat /sys/class/hwmon/hwmon4/device/gpu_busy_percent)",
+    "exec": "printf \"%3s\" $(radeontop -d - -i 0.005 -l 1 | grep -o -P \"gpu \\d*\" | grep -o -P \"\\d*\")",
     "format": "GPU:{}%",
     "return-type": "",
     "interval": 1
@@ -131,6 +131,12 @@
   },
   "battery": {
     "format": "{icon}  {capacity}%",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 }
