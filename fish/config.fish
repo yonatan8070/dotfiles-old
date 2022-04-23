@@ -17,3 +17,4 @@ set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operat
 
 alias miniterm="python3 -m serial.tools.miniterm -e"
 alias rm="rm -v"
+
