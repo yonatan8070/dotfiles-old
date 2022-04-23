@@ -16,3 +16,4 @@ set -x LESSOPEN "|lesspipe.sh %s"
 set fish_greeting (set_color C41202 --bold)">"(set_color normal) Welcome, operator. Using (fish --version | sed 's/, version//'). Good luck.
 
 alias miniterm="python3 -m serial.tools.miniterm -e"
+alias rm="rm -v"
