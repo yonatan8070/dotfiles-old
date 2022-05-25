@@ -1,23 +1,17 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-output DP-3 {
+output 'Unknown HDMI     0x00000001' {
   resolution 1920x1080@60Hz
   pos 1920 0
   transform 180
 }
 
-output DP-1 {
+output 'Unknown 24G1WG4 0x000001CE' {
   resolution 1920x1080@144Hz
   pos 1920 1080
   adaptive_sync off
 }
 
-output HDMI-A-4 {
-	pos 0 1080
+output 'Goldstar Company Ltd LG FULL HD ' {
+  pos 0 1080
 }
 
 gaps inner 0
@@ -160,18 +154,18 @@ exec swayidle -w \
 #
 # Workspaces:
 #
-    workspace 1:Z output DP-3
-    workspace 2:X output DP-3
-    workspace 3:C output DP-3
-    workspace 4:V output DP-3
-    workspace 5:A output HDMI-A-4 HDMI-A-1
-    workspace 6:S output HDMI-A-4 HDMI-A-1
-    workspace 7:D output HDMI-A-4 HDMI-A-1
-    workspace 8:F output HDMI-A-4 HDMI-A-1
-    workspace 9:1 output DP-3
-    workspace 10:2 output DP-3
-    workspace 11:3 output DP-3
-    workspace 12:4 output DP-3
+    workspace 1:Z output 'Unknown 24G1WG4 0x000001CE'
+    workspace 2:X output 'Unknown 24G1WG4 0x000001CE'
+    workspace 3:C output 'Unknown 24G1WG4 0x000001CE'
+    workspace 4:V output 'Unknown 24G1WG4 0x000001CE'
+    workspace 5:A output 'Goldstar Company Ltd LG FULL HD ' HDMI-A-1
+    workspace 6:S output 'Goldstar Company Ltd LG FULL HD ' HDMI-A-1
+    workspace 7:D output 'Goldstar Company Ltd LG FULL HD ' HDMI-A-1
+    workspace 8:F output 'Goldstar Company Ltd LG FULL HD ' HDMI-A-1
+    workspace 9:1 output  'Unknown HDMI     0x00000001'
+    workspace 10:2 output 'Unknown HDMI     0x00000001'
+    workspace 11:3 output 'Unknown HDMI     0x00000001'
+    workspace 12:4 output 'Unknown HDMI     0x00000001'
 
     bindsym --to-code --no-repeat $mod+z workspace 1:Z; exec "echo 1 > /tmp/sovpipe"
     bindsym --to-code --no-repeat $mod+x workspace 2:X; exec "echo 1 > /tmp/sovpipe"
@@ -195,10 +189,10 @@ exec swayidle -w \
     bindsym --to-code $mod+Shift+s move container to workspace 6:S; workspace 6:S; move workspace to output HDMI-A-4
     bindsym --to-code $mod+Shift+d move container to workspace 7:D; workspace 7:D; move workspace to output HDMI-A-4
     bindsym --to-code $mod+Shift+f move container to workspace 8:F; workspace 8:F; move workspace to output HDMI-A-4
-    bindsym --to-code $mod+Shift+1 move container to workspace 9:1; workspace 9:1; move workspace to output DP-3
-    bindsym --to-code $mod+Shift+2 move container to workspace 10:2; workspace 10:2; move workspace to output DP-3
-    bindsym --to-code $mod+Shift+3 move container to workspace 11:3; workspace 11:3; move workspace to output DP-3
-    bindsym --to-code $mod+Shift+4 move container to workspace 12:4; workspace 12:4; move workspace to output DP-3
+    bindsym --to-code $mod+Shift+1 move container to workspace 9:1; workspace 9:1; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+2 move container to workspace 10:2; workspace 10:2; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+3 move container to workspace 11:3; workspace 11:3; move workspace to output DP-2
+    bindsym --to-code $mod+Shift+4 move container to workspace 12:4; workspace 12:4; move workspace to output DP-2
 
     bindsym --to-code --release $mod+z exec "echo 0 > /tmp/sovpipe"
     bindsym --to-code --release $mod+x exec "echo 0 > /tmp/sovpipe"
