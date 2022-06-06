@@ -4,6 +4,8 @@ oh-my-posh --init --shell fish --config ~/.poshthemes/darkbloodcustom.omp.json |
 # Used to make Java apps work properly under Wayland
 set -x _JAVA_AWT_WM_NONREPARENTING 1
 
+set -x MOZ_ENABLE_WAYLAND 1
+
 # QT theme
 set -x QT_QPA_PLATFORMTHEME qt5ct
 
