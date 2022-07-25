@@ -44,13 +44,15 @@ input type:touchpad {
   drag enabled
 }
 
+set $locker "swaylock -c 000000 -lkf --font 'JetBrains Mono Nerd Font'"
+
 seat seat0 xcursor_theme Breeze_Snow 24
 
 set $laptop eDP-1
-bindswitch --reload lid:on exec swaylock -f && systemctl suspend
+bindswitch --reload lid:on exec $locker -f && systemctl suspend
 bindswitch --reload --locked lid:on exec systemctl suspend
 
-# bindswitch --reload --locked lid:on swaylock & ; systemctl suspend
+# bindswitch --reload --locked lid:on $locker & ; systemctl suspend
 # bindswitch --reload --locked lid:off output $laptop enable
 
 ### Variables
@@ -85,20 +87,6 @@ output * bg $(find /home/yonatan/dotfiles/Wallpapers -type f | shuf | head -n 1)
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-
-exec swayidle -w \
-         timeout 1200 'swaylock -f -c 000000' \
-         timeout 2000 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
 ### Key bindings
 #
 # Basics:
@@ -127,7 +115,7 @@ exec swayidle -w \
     bindsym --to-code $mod+Shift+e exec wlogout
 
     # Lock screen
-    bindsym --to-code --release $mod+l exec swaylock
+    bindsym --to-code --release $mod+l exec $locker
     bindsym --to-code $mod+Escape exec wlogout
 #
 # Moving around:
