@@ -2,95 +2,79 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "type": "session",
-          "style": "plain",
           "foreground": "#ffffff",
           "properties": {
-            "user_info_separator": "",
-            "display_host": false,
-            "prefix": "<#C41202>┏[</>",
-            "postfix": "<#C41202>]</>"
-          }
+            "display_host": false
+          },
+          "style": "plain",
+          "template": "<#C41202>\u250f[</>{{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}<#C41202>]</>",
+          "type": "session"
         },
         {
-          "type": "git",
-          "style": "plain",
           "foreground": "#ffffff",
           "properties": {
-            "prefix": "<#C41202>[</>",
-            "postfix": "<#C41202>]</>",
-            "display_status": true
-          }
+            "fetch_status": true
+          },
+          "style": "plain",
+          "template": "<#C41202>[</>{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}<#C41202>]</>",
+          "type": "git"
         },
         {
-          "type": "executiontime",
-          "style": "plain",
           "foreground": "#ffffff",
           "properties": {
-            "prefix": "<#C41202>[</>",
-            "postfix": "<#C41202>]</>",
             "always_enabled": true
-          }
+          },
+          "style": "plain",
+          "template": "<#C41202>[</>{{ .FormattedMs }}<#C41202>]</>",
+          "type": "executiontime"
         },
         {
-          "type": "root",
-          "style": "plain",
           "foreground": "#ffffff",
-          "properties": {
-            "prefix": "<#C41202>[</>",
-            "postfix": "<#C41202>]</>"
-          }
+          "style": "plain",
+          "template": "<#C41202>[</>\uf0e7<#C41202>]</>",
+          "type": "root"
         },
         {
-          "type": "exit",
-          "style": "plain",
           "foreground": "#ffffff",
-          "properties": {
-            "prefix": "<#C41202>[x</>",
-            "postfix": "<#C41202>]</>"
-          }
+          "style": "plain",
+          "template": "<#C41202>[x</>{{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf42e{{ end }}<#C41202>]</>",
+          "type": "exit"
         },
         {
-          "type": "java",
-          "style": "plain",
           "foreground": "#ffffff",
-          "properties": {
-            "prefix": "<#C41202>[</>Java ",
-            "postfix": "<#C41202>]</>"
-          }
+          "style": "plain",
+          "template": "<#C41202>[</>Java {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#C41202>]</>",
+          "type": "java"
         }
-      ]
+      ],
+      "type": "prompt"
     },
     {
-      "type": "prompt",
       "alignment": "left",
       "newline": true,
       "segments": [
         {
-          "type": "os",
-          "style": "plain",
           "foreground": "#3EA5D9",
-          "properties": {
-            "prefix": "<#C41202>┖[</>"
-          }
+          "style": "plain",
+          "template": "<#C41202>\u2516[</>{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "type": "os"
         },
         {
-          "type": "path",
-          "style": "plain",
           "foreground": "#ffffff",
           "properties": {
-            "style": "full",
-            "prefix": "",
-            "postfix": "<#C41202>]></>",
-            "enable_hyperlink": true
-          }
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }}<#C41202>]></>",
+          "type": "path"
         }
-      ]
+      ],
+      "type": "prompt"
     }
   ],
-  "final_space": true
+  "final_space": true,
+  "version": 2
 }
